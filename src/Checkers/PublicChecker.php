@@ -5,7 +5,7 @@ namespace iBrand\Upload\Checkers;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Collection;
 
-class PublicChecker implements BaseChecker
+abstract class PublicChecker implements BaseChecker
 {
 	const TYPE = '';
 
