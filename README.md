@@ -60,7 +60,7 @@ composer require ibrand/uploader
 $router->post('cdn/upload', 'UploadController@upload');
 ```
 
-这个步骤通过 Laravel 路由视图来实现海报样式展示
+具体使用请参照单元测试
 
 
 ### 返回结果示例
