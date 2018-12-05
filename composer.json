@@ -1,0 +1,44 @@
+{
+	"name": "ibrand/uploader",
+	"type": "library",
+	"description": "iBrand upload",
+	"keywords": [
+		"ibrand",
+		"upload"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "tangqi",
+			"email": "tangqi@element.vip"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"overtrue/laravel-filesystem-qiniu": "^1.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~6.0",
+		"orchestra/testbench": "~3.5",
+		"orchestra/database": "~3.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"iBrand\\Upload\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"iBrand\\Upload\\Test\\": "tests/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"iBrand\\Upload\\UploadServiceProvider"
+			]
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
