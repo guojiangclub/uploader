@@ -22,14 +22,15 @@ composer require ibrand/uploader
 		'qiniu' => [
 			'driver'     => 'qiniu',
 			//七牛云access_key
-			'access_key' => env('QINIU_ACCESS_KEY', 'xxxxx'),
+			'access_key' => env('QINIU_ACCESS_KEY', ''),
 			//七牛云secret_key
-			'secret_key' => env('QINIU_SECRET_KEY', 'xxxxx'),
-			//七牛云 文件上传空间
-			'bucket'     => env('QINIU_BUCKET', 'xxxxx'),
-			//七牛云 cdn域名
-			'domain'     => env('QINIU_DOMAIN', 'https://cdn.xxxx.cc'),
-			'url'        => env('QINIU_DOMAIN', 'https://cdn.xxxx.cc'),
+			'secret_key' => env('QINIU_SECRET_KEY', ''),
+			//七牛云文件上传空间
+			'bucket'     => env('QINIU_BUCKET', ''),
+			//七牛云cdn域名
+			'domain'     => env('QINIU_DOMAIN', ''),
+			//与cdn域名保持一致
+			'url'        => env('QINIU_DOMAIN', ''),
 		],
 	],
 	'image' => [
@@ -54,13 +55,13 @@ composer require ibrand/uploader
 
 ## 使用
 
+在.env文件中配置QINIU_ACCESS_KEY，QINIU_SECRET_KEY，QINIU_BUCKET，QINIU_DOMAIN等配置项。
+
 ### 定义路由
 
 ```php
 $router->post('cdn/upload', 'UploadController@upload');
 ```
-
-具体使用请参照单元测试
 
 
 ### 返回结果示例
@@ -74,6 +75,8 @@ $router->post('cdn/upload', 'UploadController@upload');
   ]
 ]
 ```
+
+具体使用请参照单元测试
 
 ## Resource
 

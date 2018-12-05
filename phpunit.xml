@@ -25,9 +25,9 @@
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="APP_KEY" value="base64:Sen61FzLXOGtOUgLyK48yTvTipzUrm9l/0duGBazHXw="/>
-        <env name="QINIU_ACCESS_KEY" value="vLl-qCt035dy0CWylyjVzL7VTKqaIh7jZvly8ArZ"/>
-        <env name="QINIU_SECRET_KEY" value="vm0dd1qy78JHd23z3HP9C5L3i2oX2IDzIiPr90KB"/>
-        <env name="QINIU_BUCKET" value="ibrand"/>
-        <env name="QINIU_DOMAIN" value="https://cdn.ibrand.cc"/>
+        <env name="QINIU_ACCESS_KEY" value=""/>
+        <env name="QINIU_SECRET_KEY" value=""/>
+        <env name="QINIU_BUCKET" value=""/>
+        <env name="QINIU_DOMAIN" value=""/>
     </php>
 </phpunit>
