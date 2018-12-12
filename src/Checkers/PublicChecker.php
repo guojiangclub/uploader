@@ -21,7 +21,7 @@ abstract class PublicChecker implements BaseChecker
 
 	public function allowMaxFileSize(UploadedFile $file): bool
 	{
-		return $file->getSize() < config('ibrand.uploader.' . static::TYPE . '.allowMaxSize') * 1024;
+		return $file->getClientSize() < config('ibrand.uploader.' . static::TYPE . '.allowMaxSize') * 1024 * 1024;
 	}
 
 	public function supportedExtensions(): Collection

@@ -15,7 +15,7 @@ class UploadController extends Controller
 		$client_id = $request->input('client_id');
 
 		try {
-			if (!$request->hasFile('upload_file')) {
+			if (!$request->hasFile('upload_file') || !$request->file('upload_file')->isValid()) {
 				throw  new \Exception('请上传文件');
 			}
 
@@ -46,9 +46,9 @@ class UploadController extends Controller
 				$client_id . '/' . date('Y-m-d'), $uniqueName, 'qiniu'
 			);
 
-			/*if (!Storage::disk('qiniu')->has($path)) {
+			if (!Storage::disk('qiniu')->has($path)) {
 				throw  new \Exception('文件上传失败');
-			}*/
+			}
 
 			UploadFiles::create([
 				'client_id' => $client_id,
