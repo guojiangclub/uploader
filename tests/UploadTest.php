@@ -68,7 +68,7 @@ class UploadTest extends BaseTest
 		$result = json_decode($res, true);
 		$this->assertFalse($result['status']);
 
-		config(['ibrand.uploader.image.supportedExtensions' => ['png']]);
+		config(['ibrand.uploader.upload_image.supportedExtensions' => ['png']]);
 		$response = $this->post('cdn/upload', [
 			'upload_file' => UploadedFile::fake()->create('test.jpeg'),
 			'client_id'   => $client_id,

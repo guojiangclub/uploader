@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'disks' => [
+	'disks'        => [
 		'qiniu' => [
 			'driver'     => 'qiniu',
 			//七牛云access_key
@@ -16,19 +16,19 @@ return [
 			'url'        => env('QINIU_DOMAIN', ''),
 		],
 	],
-	'image' => [
+	'upload_image' => [
 		//允许上传的文件类型
 		'supportedExtensions' => ['png', 'jpg', 'jpeg', 'gif'],
 		'supportedMimeTypes'  => ['image/jpeg', 'image/gif', 'image/png'],
 		//单位：M
 		'allowMaxSize'        => 2,
 	],
-	'voice' => [
+	'upload_voice' => [
 		'supportedExtensions' => ['mp3', 'wav'],
 		'supportedMimeTypes'  => ['audio/mpeg', 'audio/x-wav'],
 		'allowMaxSize'        => 5,
 	],
-	'video' => [
+	'upload_video' => [
 		'supportedExtensions' => ['webm', 'mov', 'mp4'],
 		'supportedMimeTypes'  => ['video/webm', 'video/mpeg', 'video/mp4', 'video/quicktime'],
 		'allowMaxSize'        => 30,

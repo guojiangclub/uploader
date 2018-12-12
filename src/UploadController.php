@@ -22,11 +22,12 @@ class UploadController extends Controller
 			$file     = $request->file('upload_file');
 			$mineType = $file->getMimeType();
 			$mines    = explode('/', $mineType);
-			if (!app()->isAlias($mines[0])) {
+			$alias    = 'upload_' . $mines[0];
+			if (!app()->isAlias($alias)) {
 				throw  new \Exception('不允许上传的文件类型');
 			}
 
-			$checker = app($mines[0]);
+			$checker = app($alias);
 			if (!$checker instanceof PublicChecker || !$checker->canHandleMime($mineType)) {
 				throw  new \Exception('不允许上传的文件类型');
 			}
@@ -37,7 +38,7 @@ class UploadController extends Controller
 			}
 
 			if (!$checker->allowMaxFileSize($file)) {
-				throw  new \Exception('上传文件不能超过：' . config('ibrand.uploader.' . $mines[0] . '.allowMaxSize') . 'M');
+				throw  new \Exception('上传文件不能超过：' . config('ibrand.uploader.' . $alias . '.allowMaxSize') . 'M');
 			}
 
 			$uniqueName = $this->generateUniqueName($file);
