@@ -15,13 +15,15 @@ class CreateIbrandCdnFilesTable extends Migration
 	{
 		$prefix = config('ibrand.app.database.prefix', 'ibrand_');
 
-		Schema::create($prefix . 'cdn_files', function (Blueprint $table) {
-			$table->increments('id');
-			$table->integer('client_id');
-			$table->string('path');
-			$table->string('url');
-			$table->timestamps();
-		});
+		if (!Schema::hasTable($prefix . 'cdn_files')) {
+			Schema::create($prefix . 'cdn_files', function (Blueprint $table) {
+				$table->increments('id');
+				$table->integer('client_id');
+				$table->string('path');
+				$table->string('url');
+				$table->timestamps();
+			});
+		}
 	}
 
 	/**
