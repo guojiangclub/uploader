@@ -1,12 +1,12 @@
-# cdn文件上传-七牛云
+### cdn文件上传-七牛云
 
-## 特性
+#### 特性
 
 1. 支持上传图片，音频，视频
 2. 自定义允许上传文件类型
 3. 使用简单、即插即用
 
-## 安装
+#### 安装
 ```
 composer require ibrand/uploader
 ```
@@ -14,7 +14,7 @@ composer require ibrand/uploader
 
 - 如需自定义配置请执行 `php artisan vendor:publish --provider="iBrand\Upload\UploadServiceProvider" --tag="config"`
 
-### 配置项
+#### 配置项
 
 ``` 
    return [
@@ -53,35 +53,40 @@ composer require ibrand/uploader
 ];
 ```
 
-## 使用
+#### 使用
 
 在.env文件中配置QINIU_ACCESS_KEY，QINIU_SECRET_KEY，QINIU_BUCKET，QINIU_DOMAIN等配置项。
 
-### 定义路由
+有两种方式上传文件至七牛云以供选择：
 
-```php
-$router->post('cdn/upload', 'UploadController@upload');
-```
+1. 请求接口：
 
+   ```
+   $router->post('cdn/upload', 'UploadController@upload');
+   返回结果：
+   {
+       "status": true,
+       "message": "上传成功",
+       "data": {
+           "path": "client_id/date/xxxxxx.jpg",
+           "url": "https://cdn.xxxxx.cc/client_id/date/xxxxxx.jpg"
+       }
+   }
+   ```
 
-### 返回结果示例
-```
-    [
-  "status" => true
-  "message" => "上传成功"
-  "data" => array:2 [
-    "path" => "client_id/date/xxxxxx.jpg"
-    "url" => "https://cdn.xxxxx.cc/client_id/date/xxxxxx.jpg"
-  ]
-]
-```
+   具体使用请参照单元测试
 
-具体使用请参照单元测试
+2. 调用Storage 
 
-## Resource
+   ```
+   use Storage
+   Storage::disk('qiniu')->put($filename, $file);
+   ```
+
+#### Resource
 
 项目基于[overtrue/laravel-filesystem-qiniu](https://github.com/overtrue/laravel-filesystem-qiniu)
 
-## 贡献源码
+#### 贡献源码
 
 如果你发现任何错误或者问题，请[提交ISSUE](https://github.com/ibrandcc/uploader/issues)

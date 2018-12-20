@@ -42,10 +42,8 @@ class UploadController extends Controller
 			}
 
 			$uniqueName = $this->generateUniqueName($file);
-			$path       = $file->storeAs(
-				$client_id . '/' . date('Y-m-d'), $uniqueName, 'qiniu'
-			);
-
+			$savePath   = $client_id ? $client_id . '/' . date('Ymd') : date('Ymd');
+			$path       = $file->storeAs($savePath, $uniqueName, 'qiniu');
 			if (!Storage::disk('qiniu')->has($path)) {
 				throw  new \Exception('文件上传失败');
 			}

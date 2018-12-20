@@ -18,7 +18,7 @@ class CreateIbrandCdnFilesTable extends Migration
 		if (!Schema::hasTable($prefix . 'cdn_files')) {
 			Schema::create($prefix . 'cdn_files', function (Blueprint $table) {
 				$table->increments('id');
-				$table->integer('client_id');
+				$table->string('client_id')->nullable();
 				$table->string('path');
 				$table->string('url');
 				$table->timestamps();
