@@ -42,9 +42,9 @@ class UploadServiceProvider extends ServiceProvider
 
     public function map()
     {
-        Route::group(['namespace' => $this->namespace], function ($router) {
+        /*Route::group(['namespace' => $this->namespace], function ($router) {
             $router->post('cdn/upload', 'UploadController@upload')->name('ibrand.file.upload');
-        });
+        });*/
     }
 
     public function registerMigrations()
