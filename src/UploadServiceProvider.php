@@ -44,7 +44,6 @@ class UploadServiceProvider extends ServiceProvider
     {
         Route::group(['namespace' => $this->namespace], function ($router) {
             $router->post('cdn/upload', 'UploadController@upload')->name('ibrand.file.upload');
-
             $router->post('upload/image', 'UploadController@upload');
         });
     }
